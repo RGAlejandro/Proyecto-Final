@@ -11,16 +11,35 @@
         <div class="container">
             <h1>Bienvenido a Tu Sitio de Recomendaciones Personalizadas</h1>
             <p>Descubre libros, películas, series y videojuegos que se adaptan a tus gustos</p>
-            <div class="user-icon" onclick="toggleUserMenu()"><img src="user-icon.png" alt="User Icon"></div>
+            <div class="user-icon" onclick="toggleUserMenu()"><img src="user-icon.png" alt="User Icon" height="5%" width="15%"></div>
             <div class="user-menu" id="userMenu">
                 <a href="#">Iniciar sesión</a><a href="#">Crear cuenta</a>
             </div>
         </div>
     </header>
 
-    Esto es un ejemplo
+    <div class="container">
+        <div class="sidebar">
+            <h2>Categorías</h2>
+            <ul>
+                <li><a href="#peliculas">Peliculas</a></li>
+                <li><a href="#videojuegos">Videojuegos</a></li>
+                <li><a href="#series">Series</a></li>
+                <li><a href="#libros">Libros</a></li>
+            </ul>
+        </div>
+    </div>
 
-    <!-- Contenido principal de la página -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="imagen1.jpg" alt="Imagen 1">
+            <img src="imagen2.jpg" alt="Imagen 2">
+            <img src="imagen3.jpg" alt="Imagen 3">
+            <img src="imagen4.png" alt="Imagen 4">
+        </div>
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
