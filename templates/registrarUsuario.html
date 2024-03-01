@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuario - Recomendaciones Personalizadas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Agrega tus estilos personalizados aquí */
+        body {
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-color: #555;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .login-link {
+            text-align: center;
+            color: #333;
+        }
+        .password-strength {
+            display: none;
+        }
+        .password-strength.valid {
+            display: block;
+            color: green;
+        }
+        .password-strength.weak {
+            display: block;
+            color: red;
+        }
+        /* Estilos personalizados para la select */
+        select {
+            appearance: none; /* Oculta el estilo por defecto del navegador */
+            -webkit-appearance: none; /* Para navegadores WebKit */
+            -moz-appearance: none; /* Para navegadores Firefox */
+            padding-right: 30px; /* Agrega espacio para la flecha */
+            background-image: url('arrow-down.png'); /* Agrega una flecha personalizada */
+            background-size: 20px; /* Tamaño de la imagen de la flecha */
+            background-repeat: no-repeat; /* Evita que se repita la flecha */
+            background-position: calc(100% - 10px) center; /* Posiciona la flecha a la derecha */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Registrar Usuario</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <form action="procesarRegistro.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+            <span class="password-strength" id="password-strength"></span>
+
+            <label for="confirmar-contraseña">Confirmar Contraseña:</label>
+            <input type="password" id="confirmar-contraseña" name="confirmar-contraseña" required>
+
+            <input type="submit" value="Registrarse">
+        </form>
+        <div class="login-link">
+            ¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('contraseña');
+        const passwordStrength = document.getElementById('password-strength');
+
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            let strength = 0;
+
+            if (password.match(/[a-zA-Z]+/)) {
+                strength += 1;
+            }
+            if (password.match(/[0-9]+/)) {
+                strength += 1;
+            }
+            if (password.length >= 8) {
+                strength += 1;
+            }
+
+            if (strength === 3) {
+                passwordStrength.textContent = 'Contraseña segura';
+                passwordStrength.classList.remove('weak');
+                passwordStrength.classList.add('valid');
+            } else {
+                passwordStrength.textContent = 'Contraseña débil';
+                passwordStrength.classList.remove('valid');
+                passwordStrength.classList.add('weak');
+            }
+        });
+    </script>
+</body>
+</html>
