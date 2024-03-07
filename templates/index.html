@@ -5,18 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal - Recomendaciones Personalizadas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('Fondo\ pagina\ principal\ Agem.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+
+        .agem {
+            margin-right: auto; /* Para que la imagen no se alinee a la derecha */
+            margin-left: auto; /* Para que la imagen no se alinee a la izquierda */
+        }
+
+        header {
+            background-color: #333; /* Color de fondo oscuro */
+            color: white; /* Color de texto blanco */
+            padding: 20px;
+        }
+
+        header h1, header p {
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        header h1 {
+            font-family: 'Arial', sans-serif; /* Cambia la fuente */
+            font-size: 32px; /* Cambia el tamaño del texto */
+        }
+
+        p, b {
+            font-size: 0.5em;
+            color: #ffffff;
+            font-family: 'Sixtyfour', sans-serif; /* Utiliza la fuente Sixtyfour */
+        }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Agregamos posición relativa para el contenedor */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 20px; /* Ajustamos la posición vertical para evitar superposiciones */
+    right: -35%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    margin: 10px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.user-menu a {
+    display: block;
+}
+
+.user-menu a:first-child {
+    margin-bottom: 10px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.carousel img:first-child {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilos para el menú de navegación */
+.sidebar {
+    position: absolute;
+    top: 100%;
+    right: -20%; /* Ajustamos la posición a la derecha */
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    padding: 5%;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar a:hover {
+    color: #666;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.header-content img {
+    display: block;
+    margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+.header-content p {
+    color: #ffffff;
+    font-size: 1.2em;
+    font-family: 'Sixtyfour', sans-serif;
+    margin-top: 20px; /* Ajusta el margen superior del mensaje */
+}
+
+.user-icon {
+    margin-left: auto; /* Para que el icono se alinee a la derecha */
+    position: absolute;
+    top: 20px;
+    right: -50%;
+    cursor: pointer;
+}
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>GemRecomend</h1>
-            <p>Descubre libros, películas, series y videojuegos que se adaptan a tus gustos</p>
+            <div class="header-content">
+                <img src="Agem logo.png" alt="Robot Mascota" class="agem" width="10%" height="10%">
+                <p>Descubre libros, películas, series y videojuegos que se adaptan a tus gustos</p>
+            </div>
             <div class="user-icon" onclick="toggleUserMenu()"><img src="user-icon.png" alt="User Icon" height="5%" width="15%"></div>
             <div class="user-menu" id="userMenu">
                 <a href="#">Iniciar sesión</a><a href="registrarUsuario.html">Crear cuenta</a>
             </div>
         </div>
     </header>
+    
 
     <div class="container">
         <div class="sidebar">
